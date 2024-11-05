@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
+import { userRouter } from "./routes/user.routes.js";
 
 export const app=express();
 
@@ -19,5 +20,8 @@ app.use(express.urlencoded({extended:true,limit:"16kb"}));
 //we are telling that it will be in public folder
 app.use(express.static("public"));
 app.use(cookieParser());
+
+//routes 
+app.use("/api/v1/users",userRouter);
 
 
